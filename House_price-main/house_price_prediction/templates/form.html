@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>House Price Predictor</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            padding: 40px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            max-width: 600px;
+            margin: auto;
+            background: #fff;
+            padding: 30px 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            background-color: #007bff;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        h3 {
+            text-align: center;
+            color: #28a745;
+        }
+    </style>
+</head>
+<body>
+    <h2>Enter House Details</h2>
+    <form method="post">
+        Area: <input type="number" name="area"><br>
+        Bedrooms: <input type="number" name="bedrooms"><br>
+        Bathrooms: <input type="number" name="bathrooms"><br>
+        Stories: <input type="number" name="stories"><br>
+
+        Main Road: 
+        <select name="mainroad">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+        Guest Room: 
+        <select name="guestroom">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+        Basement: 
+        <select name="basement">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+        Hot Water Heating: 
+        <select name="hotwaterheating">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+        Air Conditioning: 
+        <select name="airconditioning">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+        Parking: <input type="number" name="parking"><br>
+
+        Preferred Area:
+        <select name="prefarea">
+            <option value="yes">Yes</option>
+            <option value="no">No</option>
+        </select>
+
+        Furnishing Status:
+        <select name="furnishingstatus">
+            <option value="furnished">Furnished</option>
+            <option value="semi-furnished">Semi-furnished</option>
+            <option value="unfurnished">Unfurnished</option>
+        </select>
+
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction is not none %}
+        <h3>Predicted House Price: ₹{{ prediction }}</h3>
+    {% endif %}
+</body>
+</html>
